@@ -43,6 +43,7 @@ def Gooey(f=None,
           header_height=80,
           navigation='SIDEBAR', # TODO: add this to the docs
           tabbed_groups=False,
+          clear_before_run=False,  # TODO: add this to the docs
           **kwargs):
   '''
   Decorator for client code's main function.
