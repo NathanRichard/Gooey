@@ -76,6 +76,8 @@ class GooeyApplication(wx.Frame):
             config = self.navbar.getActiveConfig()
             config.resetErrors()
             if config.isValid():
+                if self.buildSpec['clear_before_run']:
+                    self.console.clear()
                 self.clientRunner.run(self.buildCliString())
                 self.showConsole()
             else:
