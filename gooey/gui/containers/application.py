@@ -78,7 +78,7 @@ class GooeyApplication(wx.Frame):
             if config.isValid():
                 if self.buildSpec['clear_before_run']:
                     self.console.clear()
-                self.clientRunner.run(self.buildCliString())
+                self.clientRunner.run(self.buildCliString(), self.buildSpec['force_stdio_encoding'])
                 self.showConsole()
             else:
                 config.displayErrors()
@@ -152,7 +152,8 @@ class GooeyApplication(wx.Frame):
         """
         seeds = seeder.fetchDynamicProperties(
             self.buildSpec['target'],
-            self.buildSpec['encoding']
+            self.buildSpec['encoding'],
+            self.buildSpec['force_stdio_encoding']
         )
         for config in self.configs:
             config.seedUI(seeds)

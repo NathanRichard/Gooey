@@ -37,11 +37,15 @@ class ProcessController(object):
     def running(self):
         return self._process and self.poll() is None
 
-    def run(self, command):
+    def run(self, command, force_stdio_encoding):
         self.wasForcefullyStopped = False
         env = os.environ.copy()
         env["GOOEY"] = "1"
         env["PYTHONIOENCODING"] = self.encoding
+        if force_stdio_encoding:
+            sys.stdout.reconfigure(encoding=self.encoding)
+            sys.stdin.reconfigure(encoding=self.encoding)
+            sys.stderr.reconfigure(encoding=self.encoding)
         try:
             self._process = subprocess.Popen(
                 command.encode(sys.getfilesystemencoding()),

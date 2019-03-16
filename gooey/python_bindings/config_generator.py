@@ -48,6 +48,7 @@ def create_from_parser(parser, source_path, **kwargs):
       'poll_external_updates':kwargs.get('poll_external_updates', False),
       'return_to_config':     kwargs.get('return_to_config', False),
       'clear_before_run':     kwargs.get('clear_before_run', False),
+      'force_stdio_encoding': kwargs.get('force_stdio_encoding', False),
 
       # Legacy/Backward compatibility interop
       'use_legacy_titles':    kwargs.get('use_legacy_titles', True),
