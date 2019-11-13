@@ -54,7 +54,8 @@ class TextContainer(BaseWidget):
         self.layout = self.arrange(*args, **kwargs)
         self.SetSizer(self.layout)
         self.Bind(wx.EVT_SIZE, self.onSize)
-        if self._meta['default']:
+        # Checking for None instead of truthiness means False-evaluaded defaults can be used.
+        if self._meta['default'] is not None:
             self.setValue(self._meta['default'])
 
 
