@@ -50,7 +50,8 @@ class UnsupportedConfiguration(Exception):
 group_defaults = {
     'columns': 2,
     'padding': 10,
-    'show_border': False
+    'show_border': False,
+    'collapsible': False
 }
 
 item_default = {
